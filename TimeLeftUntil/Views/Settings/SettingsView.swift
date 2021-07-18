@@ -103,6 +103,7 @@ struct SettingsView: View {
                     }
                     
                 }.buttonStyle(.borderless)
+                    .keyboardShortcut("a", modifiers: .command)
 
                 
                 
@@ -127,107 +128,6 @@ struct SettingsView_Previews: PreviewProvider {
 }
 
 
-struct EventResView: View {
-    
-    @NSApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    @ObservedObject var userPreference = UserPreference()
-    
-    
-    var resolutionplaceEvent = ["2 d.p", "3 d.p", "4 d.p", "5 d.p", "6 d.p"]
-    @State private var selectedResEvent = 0
-    @State var TestEvent:Double = 26.015833
-    @State var test: String = "26.015833"
-    
-    var body: some View {
-        VStack {
-            Text("\(test) hours").frame(width: 350, alignment: .center)
-            
-            Picker(selection: $selectedResEvent, label: Text("Decimal Places")) {
-              ForEach(0..<resolutionplaceEvent.count) {
-                Text(resolutionplaceEvent[$0])
-              }
-            }
-            .pickerStyle(SegmentedPickerStyle())
-            .onChange(of: self.selectedResEvent) {newValue in
-                switch (selectedResEvent) {
-                case 0:
-                    delegate.eventres = "%.2f"
-                case 1:
-                    delegate.eventres = "%.3f"
-                case 2:
-                    delegate.eventres = "%.4f"
-                case 3:
-                    delegate.eventres = "%.5f"
-                case 4:
-                    delegate.eventres = "%.6f"
-                default:
-                    delegate.eventres = "%"
-                    print("CASE ERROR")
-                }
-                test = String(format: delegate.eventres, TestEvent)
-                
-            
-            }
-        
-        }.onAppear(perform: {testEvent()})
-            .frame(width: 350)
-    }
-    
-    func testEvent() {
-        let diff = Date().addingTimeInterval(93657).timeIntervalSince(Date())
-        let testtime = Double(diff) / 3600
-        TestEvent = testtime
-    }
-}
 
 
-struct YearsResView: View {
-    
-    @ObservedObject var userPreference = UserPreference()
-    @NSApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    
-    
-    var resolutionplaceBirth = ["6 d.p", "7 d.p", "8 d.p"]
-    @State private var selectedResBirth = 0
-    @State var Yearsold:Double = 0.0
-    
-    
-    var body: some View {
-        
-        VStack {
-            Text("\(String(format: delegate.birthdayres, Yearsold)) years").frame(width: 350, alignment: .center)
-            
-            
-            Picker(selection: $selectedResBirth, label: Text("Decimal Places")) {
-              ForEach(0..<resolutionplaceBirth.count) {
-                Text(resolutionplaceBirth[$0])
-              }
-            }
-            .pickerStyle(SegmentedPickerStyle())
-            .onChange(of: self.selectedResBirth) {newValue in
-                switch (selectedResBirth) {
-                case 0:
-                    delegate.birthdayres = "%.6f"
-                case 1:
-                    delegate.birthdayres = "%.7f"
-                case 2:
-                    delegate.birthdayres = "%.8f"
-                default:
-                    delegate.birthdayres = "%"
-                    print("CASE ERROR")
-                }
-                
-                timeBirthday()
-            }
-            
-        }.onAppear(perform: {timeBirthday()})
-            .frame(width: 350)
-    }
-    
-    
-    func timeBirthday() {
-            let time = Date().timeIntervalSince(userPreference.birthdate)
-            let yearsold = Double(time) / 31557600
-            Yearsold = yearsold
-    }
-}
+

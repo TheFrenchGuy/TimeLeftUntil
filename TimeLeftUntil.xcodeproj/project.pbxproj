@@ -26,6 +26,8 @@
 		605ED1BF2694BB0C00C0E4E6 /* GettingOlderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605ED1BE2694BB0C00C0E4E6 /* GettingOlderView.swift */; };
 		605ED1C12694BB1800C0E4E6 /* ProjectDueDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605ED1C02694BB1800C0E4E6 /* ProjectDueDate.swift */; };
 		606F90AE2694EAD600A9EDE9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606F90AD2694EAD600A9EDE9 /* SettingsView.swift */; };
+		60B8CC8526A44C5D00B544E3 /* EventResView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8CC8426A44C5D00B544E3 /* EventResView.swift */; };
+		60B8CC8726A44C9B00B544E3 /* YearsResView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8CC8626A44C9B00B544E3 /* YearsResView.swift */; };
 		60F3C3F826988B2000ACCA14 /* LaunchAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F3C3F726988B2000ACCA14 /* LaunchAlert.swift */; };
 		60F45A0A26A1B03300A9369C /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 60F45A0926A1B03300A9369C /* LaunchAtLogin */; };
 /* End PBXBuildFile section */
@@ -62,6 +64,8 @@
 		605ED1BE2694BB0C00C0E4E6 /* GettingOlderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GettingOlderView.swift; sourceTree = "<group>"; };
 		605ED1C02694BB1800C0E4E6 /* ProjectDueDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDueDate.swift; sourceTree = "<group>"; };
 		606F90AD2694EAD600A9EDE9 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		60B8CC8426A44C5D00B544E3 /* EventResView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventResView.swift; sourceTree = "<group>"; };
+		60B8CC8626A44C9B00B544E3 /* YearsResView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearsResView.swift; sourceTree = "<group>"; };
 		60F3C3F726988B2000ACCA14 /* LaunchAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,7 +96,6 @@
 		604560AA26939B3A00615DE9 = {
 			isa = PBXGroup;
 			children = (
-				605CF55226A36E42002AF63B /* Credits.html */,
 				604560B526939B3A00615DE9 /* TimeLeftUntil */,
 				604560B426939B3A00615DE9 /* Products */,
 			);
@@ -145,6 +148,7 @@
 		604560D72693A49E00615DE9 /* UserPreferences */ = {
 			isa = PBXGroup;
 			children = (
+				605CF55226A36E42002AF63B /* Credits.html */,
 				604560D82693A4AD00615DE9 /* UserPreference.swift */,
 			);
 			path = UserPreferences;
@@ -179,6 +183,8 @@
 			children = (
 				604889422695D4E20031605D /* ConfirmationView.swift */,
 				606F90AD2694EAD600A9EDE9 /* SettingsView.swift */,
+				60B8CC8426A44C5D00B544E3 /* EventResView.swift */,
+				60B8CC8626A44C9B00B544E3 /* YearsResView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -307,6 +313,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60B8CC8726A44C9B00B544E3 /* YearsResView.swift in Sources */,
 				604560B926939B3A00615DE9 /* ContentView.swift in Sources */,
 				606F90AE2694EAD600A9EDE9 /* SettingsView.swift in Sources */,
 				605ED1C12694BB1800C0E4E6 /* ProjectDueDate.swift in Sources */,
@@ -318,6 +325,7 @@
 				602621B726950DA800372467 /* LottieViewHelper.swift in Sources */,
 				604889452695DD1D0031605D /* nsImageExtension.swift in Sources */,
 				605ED1BF2694BB0C00C0E4E6 /* GettingOlderView.swift in Sources */,
+				60B8CC8526A44C5D00B544E3 /* EventResView.swift in Sources */,
 				604560B726939B3A00615DE9 /* TimeLeftUntilApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
