@@ -23,11 +23,11 @@ struct ProjectDueDate: View {
         ZStack {
             if !selected {
             
-                LazyVStack(alignment: .center) {
+                VStack(alignment: .center) {
                     
                     Text("So when is that project due? 📚").font(.title)
                     DatePicker("Project Due Date", selection: $userPreference.dueDate, displayedComponents: [.date, .hourAndMinute])
-                        .datePickerStyle(.graphical)
+                        .datePickerStyle(GraphicalDatePickerStyle())
                         .labelsHidden()
                         .frame(width: 240)
                         .padding()
@@ -49,7 +49,7 @@ struct ProjectDueDate: View {
                     }) {
                         Text("Get Started ✅")
                     }
-                }.padding(.horizontal, 20)
+                }
                 .frame(width: 360)
                 
             } else {

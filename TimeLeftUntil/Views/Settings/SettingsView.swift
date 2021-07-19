@@ -102,7 +102,7 @@ struct SettingsView: View {
                             .frame(width: 350, height: 70 , alignment: .center)
                     }
                     
-                }.buttonStyle(.borderless)
+                }.buttonStyle(BorderlessButtonStyle())
                     .keyboardShortcut("a", modifiers: .command)
 
                 

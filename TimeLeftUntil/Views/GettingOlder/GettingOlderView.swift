@@ -26,13 +26,13 @@ struct GettingOlderView: View {
                     
                     HStack {
                         VStack(alignment: .leading) {
-                            DatePicker("Birthdate", selection:$userPreference.birthdate, displayedComponents: [.date] ) .datePickerStyle(.compact)
+                            DatePicker("Birthdate", selection:$userPreference.birthdate, displayedComponents: [.date] ) .datePickerStyle(CompactDatePickerStyle())
                                 .labelsHidden()
                                 .frame(width: 120)
                             
                             
                             DatePicker("BirthDate", selection: $userPreference.birthdate, displayedComponents: [.date])
-                            .datePickerStyle(.graphical)
+                            .datePickerStyle(GraphicalDatePickerStyle())
                             .foregroundColor(.blue)
                             .labelsHidden()
                             .frame(width: 120)

@@ -51,8 +51,8 @@ struct LottieView: NSViewRepresentable {
             
             animationView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             animationView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            animationView.heightAnchor.constraint(equalToConstant: heightView),
-            animationView.widthAnchor.constraint(equalToConstant: widthView)
+            animationView.heightAnchor.constraint(equalToConstant: CGFloat(heightView)),
+            animationView.widthAnchor.constraint(equalToConstant: CGFloat(widthView))
         
             
 

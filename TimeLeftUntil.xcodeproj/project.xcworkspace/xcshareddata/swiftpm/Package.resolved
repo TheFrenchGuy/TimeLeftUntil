@@ -11,7 +11,7 @@
         }
       },
       {
-        "package": "librlottie-Xcode",
+        "package": "librlottie",
         "repositoryURL": "https://github.com/SDWebImage/librlottie-Xcode.git",
         "state": {
           "branch": null,
@@ -20,7 +20,7 @@
         }
       },
       {
-        "package": "lottie-ios",
+        "package": "Lottie",
         "repositoryURL": "https://github.com/airbnb/lottie-ios",
         "state": {
           "branch": "lottie/macos-spm",

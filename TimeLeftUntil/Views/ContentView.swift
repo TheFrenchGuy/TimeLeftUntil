@@ -54,68 +54,70 @@ struct ContentView: View {
                             }
                         }) {
                             Text("Birth 🎂").foregroundColor(colorScheme == .light ? Color.black : Color.white)
-                        }.buttonStyle(.borderless)
-                            .padding(5)
+                        }.buttonStyle(BorderlessButtonStyle())
+                            .padding(7)
                             .background(selectedTab == 0 ? RoundedRectangle(cornerRadius: 12).foregroundColor(Color.blue) : RoundedRectangle(cornerRadius: 12).foregroundColor(.clear) )
-                        
+
                         Divider()
                         Button(action: {
                             withAnimation() {
                                 selectedTab = 1
                             }
-                            
+
                         }) {
                             Text("Project 💷").foregroundColor(colorScheme == .light ? Color.black : Color.white)
-                        }.buttonStyle(.borderless)
-                            .padding(5)
+                        }.buttonStyle(BorderlessButtonStyle())
+                            .padding(7)
                             .background(selectedTab == 1 ? RoundedRectangle(cornerRadius: 12).foregroundColor(Color.blue) : RoundedRectangle(cornerRadius: 12).foregroundColor(.clear) )
-                        
+
                         Divider()
-                        
+
                         Button(action: {
                             withAnimation() {
                                 selectedTab = 2
                             }
                         }) {
                             Text("Timer ⏲").foregroundColor(colorScheme == .light ? Color.black : Color.white)
-                        }.buttonStyle(.borderless)
-                            .padding(5)
+                        }.buttonStyle(BorderlessButtonStyle())
+                            .padding(7)
                             .background(selectedTab == 2 ? RoundedRectangle(cornerRadius: 12).foregroundColor(Color.blue) : RoundedRectangle(cornerRadius: 12).foregroundColor(.clear) )
-                        
+
                         Divider()
-                        
+
+
+
                         Button(action: {
-                            
+
                             withAnimation() {
                                 selectedTab = 3
                             }
-                            
+
                         }) {
                             Text("􀈁").foregroundColor(colorScheme == .light ? Color.black : Color.white)
-                        }.buttonStyle(.borderless)
-                            .padding(5)
+                        }.buttonStyle(BorderlessButtonStyle())
+                            .padding(7)
                             .background(selectedTab == 3 ? RoundedRectangle(cornerRadius: 12).foregroundColor(Color.blue) : RoundedRectangle(cornerRadius: 12).foregroundColor(.clear) )
-                        
-                        
+
+
                     }.frame(height: 33)
                         .padding(.horizontal, 10)
-                        .padding(.vertical, 5)
-                        .background(RoundedRectangle(cornerRadius: 12).foregroundColor(colorScheme == .light ? Color.white : Color.black.opacity(0.3)))
-                    
-                    
+                        .padding(.vertical, 10)
+                        .background(RoundedRectangle(cornerRadius: 12).foregroundColor(colorScheme == .light ? Color.white.opacity(0.3) : Color.black.opacity(0.3)))
+
+
                     switch (selectedTab) {
                         case 0:
                             GettingOlderView()
                         case 1:
                             ProjectDueDate()
                         case 2:
-                            CountDown()
+                            TimerView()
                         case 3:
                             SettingsView()
-                        
+
                         default:
                             EmptyView()
-                        
+
                     }
                     
                     

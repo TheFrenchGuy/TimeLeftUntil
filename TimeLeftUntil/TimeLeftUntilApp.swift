@@ -77,6 +77,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var toggleNotification: Bool = false
     var showNotificationAtTimersEnd: Bool = true
     
+    var eventDone: Bool = false
+    
     
     
     let defaults = UserDefaults.standard
@@ -175,6 +177,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     self.toggleNotification = false
                     print("Notification Fired")
                 }
+                
+                
             }
             
         
@@ -204,6 +208,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             else {
                 self.timeLeft = 0
                 self.toggleNotification = true
+                
                 self.Count = 4
                 
                 
@@ -224,7 +229,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         var time = Date().timeIntervalSince(UserPreference().dueDate)
         time =  -(time / 3600)
         self.statusBarItem?.button?.image = NSImage(systemSymbolName: "wand.and.stars", accessibilityDescription: nil)
-        self.statusBarItem?.button?.title = String(format:eventres,time) + " h"
+        
+        if time <= 0 {
+            self.statusBarItem?.button?.title = String(0) + " h"
+            self.toggleNotification = true
+            self.eventDone = true
+            self.Count = 4
+        } else {
+            self.statusBarItem?.button?.title = String(format:eventres,time) + " h"
+        }
     }
     
     @objc func timediff(){

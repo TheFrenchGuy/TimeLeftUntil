@@ -9,6 +9,8 @@ import SwiftUI
 import Combine
 
 
+
+
 struct CountDown: View {
     
     @ObservedObject var userPreference = UserPreference()
@@ -32,12 +34,17 @@ struct CountDown: View {
         
         VStack {
             
+            
+            
+            
             HStack {
                 
                 Text("CountDown: ")
                 HStack{
                     
                     VStack(alignment: .leading) {
+                        
+                        
                         HStack {
                             TextField("hh", text: self.$hoursString)
                                 .frame(width: 30, height: 30)

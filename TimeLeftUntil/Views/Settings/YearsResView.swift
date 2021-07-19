@@ -56,6 +56,10 @@ struct YearsResView: View {
             let yearsold = Double(time) / 31557600
             Yearsold = yearsold
     }
+    
+    func setInitalState() {
+        
+    }
 }
 
 
