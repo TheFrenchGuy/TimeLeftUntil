@@ -46,7 +46,7 @@ struct YearsResView: View {
                 timeBirthday()
             }
             
-        }.onAppear(perform: {timeBirthday()})
+        }.onAppear(perform: {timeBirthday(); onAppearTimeBirthday()})
             .frame(width: 350)
     }
     
@@ -55,6 +55,21 @@ struct YearsResView: View {
             let time = Date().timeIntervalSince(userPreference.birthdate)
             let yearsold = Double(time) / 31557600
             Yearsold = yearsold
+    }
+    
+    func onAppearTimeBirthday() {  //so that it loads the correct possition on the slider from memory 
+        switch (delegate.birthdayres) {
+            case "%.6f" :
+                selectedResBirth = 0
+            case "%.7f" :
+                selectedResBirth = 1
+            case "%.8f" :
+                selectedResBirth = 2
+            default:
+                    selectedResBirth = 0
+                    print("CASE ERROR")
+            
+        }
     }
     
     func setInitalState() {

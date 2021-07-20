@@ -8,7 +8,12 @@
 import Foundation
 import Combine
 
-class UserPreference: ObservableObject {
+class UserPreference: ObservableObject, Equatable {
+    static func == (lhs: UserPreference, rhs: UserPreference) -> Bool { //had to make it equatable to allow it to be checked when value is changed to see if the time difference is less than 0
+        lhs.dueDate == rhs.dueDate
+        
+    }
+    
     
     
     @Published var firstLaunch: Bool {

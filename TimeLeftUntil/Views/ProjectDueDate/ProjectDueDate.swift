@@ -17,6 +17,8 @@ struct ProjectDueDate: View {
     
     @State private var selected: Bool = false
     
+    @State var showPopupAlert: Bool = false
+    
     
     var body: some View {
         
@@ -26,11 +28,22 @@ struct ProjectDueDate: View {
                 VStack(alignment: .center) {
                     
                     Text("So when is that project due? 📚").font(.title)
-                    DatePicker("Project Due Date", selection: $userPreference.dueDate, displayedComponents: [.date, .hourAndMinute])
+                    DatePicker("Project Due Date", selection: $userPreference.dueDate,displayedComponents: [.date, .hourAndMinute]).onChange(of: userPreference.dueDate, perform: { value in
+                            if userPreference.dueDate.timeIntervalSince(Date()) < -1 {
+                                print("less than a second difference since last time")
+                                userPreference.dueDate = Date().addingTimeInterval(60)
+                                showPopupAlert.toggle() // so will display when the user tries to set a due date in the past
+                                
+                            }
+                    })
                         .datePickerStyle(GraphicalDatePickerStyle())
                         .labelsHidden()
                         .frame(width: 240)
                         .padding()
+                    .alert(isPresented: self.$showPopupAlert, content: {
+                        Alert(title: Text("Well if your trying to set a due date in the past you are late"))
+                    })
+                        
                     
                     VStack {
                         Text("So you will be 'done' with that project on")
@@ -44,8 +57,8 @@ struct ProjectDueDate: View {
                         
                         userPreference.setChoice = 2
                         
-                        UserDefaults.standard.set(2, forKey: "setChoice") // This means that the user is logging in the first time so he must complete the daily intake calculator
-                        NotificationCenter.default.post(name: NSNotification.Name("setChoice"), object: nil) //Put a backend notification to inform app the data has been written
+                        UserDefaults.standard.set(2, forKey: "setChoice")
+                        NotificationCenter.default.post(name: NSNotification.Name("setChoice"), object: nil)
                     }) {
                         Text("Get Started ✅")
                     }

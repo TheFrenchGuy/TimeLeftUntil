@@ -65,6 +65,7 @@ class TimerManager {
 
 
 class AppDelegate: NSObject, NSApplicationDelegate {
+    @Environment(\.colorScheme) var colorScheme
     let timerManager = TimerManager()
     var popover = NSPopover.init()
     var alert = NSAlert.init()
@@ -193,6 +194,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         var hours = 0
         var minutes = 0
         var seconds = 0
+        
+        var hoursString = "00"
+        var minutesString = "00"
+        var secondsString = "00"
         //Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
             if self.timeLeft > 0.0 {
                 print("\(self.timeLeft)")
@@ -213,11 +218,26 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 
                 
             }
+        
+        
+            if hours < 10 {
+                hoursString = String("0\(hours)")
+            } else { hoursString = String("\(hours)")}
+        
+            if minutes < 10 {
+                minutesString = String("0\(minutes)")
+            } else { minutesString = String("\(minutes)")}
+        
+            if seconds < 10 {
+                secondsString = String("0\(seconds)")
+            } else { secondsString = String("\(seconds)")}
+            /// Allows for a nice time format date where each component is always two characters
+        
 
             //self.statusBarItem?.button?.title = String(format: "%.2f",self.timeLeft)
         
             statusBarItem?.button?.image = NSImage(systemSymbolName: "timer", accessibilityDescription: nil)
-            self.statusBarItem?.button?.title = String("\(hours):\(minutes):\(seconds)")
+            self.statusBarItem?.button?.title = String("\(hoursString):\(minutesString):\(secondsString)")
        // }
             
         
@@ -245,7 +265,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 let yearsold = Double(time) / 31557600
                 //print(time)
                // return Double(time)
-                self.statusBarItem?.button?.image = NSImage(named: "birthdayCandle")?.resized(to: NSSize(width: 23, height: 23))
+        
+                    //self.statusBarItem?.button?.image = NSImage(named: "birthdayCandleLight")?.resized(to: NSSize(width: 23, height: 23))
+        self.statusBarItem?.button?.image = NSImage(systemSymbolName: "lightbulb", accessibilityDescription: nil) //had to use an SF symbol due to the fact that could not figure out how to get the color of the text on the menu bar.
+        
+            
         
                 self.statusBarItem?.button?.title = String(format:birthdayres,yearsold)
             

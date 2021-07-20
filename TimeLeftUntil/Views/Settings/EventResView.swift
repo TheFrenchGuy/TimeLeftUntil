@@ -49,7 +49,7 @@ struct EventResView: View {
             
             }
         
-        }.onAppear(perform: {testEvent()})
+        }.onAppear(perform: {testEvent(); onAppearTestEvent()})
             .frame(width: 350)
     }
     
@@ -57,6 +57,26 @@ struct EventResView: View {
         let diff = Date().addingTimeInterval(93657).timeIntervalSince(Date())
         let testtime = Double(diff) / 3600
         TestEvent = testtime
+    }
+    
+    func onAppearTestEvent() { //so that it loads the correct possition on the slider from memory 
+        switch (delegate.eventres) {
+            case "%.2f":
+                selectedResEvent = 0
+            case "%.3f":
+                selectedResEvent = 1
+            case "%.4f":
+                selectedResEvent = 2
+            case "%.5f":
+                selectedResEvent = 3
+            case "%.6f":
+                selectedResEvent = 4
+        default:
+            selectedResEvent = 0
+            print("Case Error")
+            
+            
+        }
     }
 }
 
